@@ -1,0 +1,21 @@
+/*
+ Theme Name:   Visit NY Tours (Sensible Pro 2.0 Child Theme)
+ Theme URI:    http://yourwebsite.com/twentyfourteen-child/
+ Description:  Child Theme of Sensible Pro 2.0 developed for Visit New York Tours
+ Author:       Gretchen Blackwood
+ Author URI:   http://gretchenblackwood.com
+ Template:     sensible_pro_2.0
+ Github Theme URI: https://github.com/gretchen-blackwood/visitnytours
+ Version:      1.0.1
+ Text Domain:  visit-ny-tours
+*/
+
+/* I noticed you changed the button color, so we'll check in with this later.
+button {
+  border-color: #2d8427;
+  background: #2d8427;
+}
+*/
+.site-header {
+  background: rgba(0,0,0,0.4);
+}

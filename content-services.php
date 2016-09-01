@@ -81,7 +81,6 @@
 
               							<?php the_title( '<h5>','</h5>' ); ?>
 													</a>
-														<?php echo "hi"; ?>
                                         <?php the_excerpt(); ?>
 																				<a href="<?php echo esc_url( get_permalink()) ?>" class="featured-link">
 

@@ -54,3 +54,11 @@ array(
       ),
 
   );
+
+  //Initialize the update checker.
+require 'theme-updates/theme-update-checker.php';
+$update_checker = new ThemeUpdateChecker(
+    'visitnytours',
+    'https://github.com/gretchen-blackwood/visitnytours/theme_details.json',
+    'd49acc95836b836d47972d272b5c8aebd9f03709'
+);

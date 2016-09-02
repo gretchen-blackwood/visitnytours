@@ -56,9 +56,7 @@ array(
   );
 
   //Initialize the update checker.
-require 'theme-updates/theme-update-checker.php';
-$update_checker = new ThemeUpdateChecker(
+$custom_update_checker = new CustomThemeUpdateChecker(
     'visitnytours',
-    'https://github.com/gretchen-blackwood/visitnytours',
-    'd49acc95836b836d47972d272b5c8aebd9f03709'
+    'https://raw.githubusercontent.com/gretchen-blackwood/visitnytours/master/theme_details.json'
 );

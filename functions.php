@@ -56,7 +56,10 @@ array(
   );
 
   //Initialize the update checker.
+  function addChildThemeUpdater() {
 $custom_update_checker = new ThemeUpdateChecker(
     'visitnytours',
     'https://raw.githubusercontent.com/gretchen-blackwood/visitnytours/master/theme_details.json'
 );
+}
+add_action( 'after_setup_theme', addChildThemeUpdater, 42 );

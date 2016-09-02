@@ -20,8 +20,10 @@ if ( !class_exists('ThemeUpdateChecker') ):
  */
 class ThemeUpdateChecker {
 	public $theme = '';              //The theme associated with this update checker instance.
-	public $metadataUrl = '';        //The URL of the theme's metadata file.
+	public $themeUrl = '';        //The URL of the theme.
+	public $accessToken = '';				 //The GitHub access token
 	public $enableAutomaticChecking = true; //Enable/disable automatic update checks.
+
 
 	protected $optionName = '';      //Where to store update info.
 	protected $automaticCheckDone = false;
@@ -31,11 +33,12 @@ class ThemeUpdateChecker {
 	 * Class constructor.
 	 *
 	 * @param string $theme Theme slug, e.g. "twentyten".
-	 * @param string $metadataUrl The URL of the theme metadata file.
+	 * @param string $themeUrl The URL of the theme metadata file.
 	 * @param boolean $enableAutomaticChecking Enable/disable automatic update checking. If set to FALSE, you'll need to explicitly call checkForUpdates() to, err, check for updates.
 	 */
-	public function __construct($theme, $metadataUrl, $accessToken, $enableAutomaticChecking = true){
-		$this->metadataUrl = $metadataUrl + "/?access_token=" + $accessToken;
+	public function __construct($theme, $themeUrl, $accessToken, $enableAutomaticChecking = true){
+		$this->themeUrl = $themeUrl;
+		$this->accessToken = $accessToken;
 		$this->enableAutomaticChecking = $enableAutomaticChecking;
 		$this->theme = $theme;
 		$this->optionName = 'external_theme_updates-'.$this->theme;
@@ -86,7 +89,7 @@ class ThemeUpdateChecker {
 		);
 		$options = apply_filters(self::$filterPrefix.'options-'.$this->theme, $options);
 
-		$url = $this->metadataUrl;
+		$url = $this->themeUrl + "/releases/latest/?access_token" + $this->accessToken;
 		if ( !empty($queryArgs) ){
 			$url = add_query_arg($queryArgs, $url);
 		}
